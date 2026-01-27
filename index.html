@@ -10,20 +10,19 @@
 <body>
     <main>
         <section>
-            <form action="" novalidate>
-                
+            <form id="blogForm" novalidate>
                 <div id="titleContainer">
-                    <label for="">Title:</label>
-                    <input type="text" placeholder="enter blog title"  minlength="8"  required>
-                    <span id="blog-title-input-error"></span>                
+                    <label for="titleInput">Title:</label>
+                    <input type="text" id="titleInput" placeholder="enter blog title"  minlength="8"  required>
+                    <span id="blogTitleError"></span>                
                 </div>
                 <div id="contentContainer">
                     <label for="postContent">PostContent:</label>
                     <textarea id="postContent" rows="5" cols="33" required></textarea>
                     <span id="blog-title-input-error"></span>
                 </div>
-                <button  id="formSubmitButton">submit</button>
-                <h2 id="list-title">Blog Posts</h1>
+                <button  id="formSubmitButton" type="submit">submit</button>
+                <h2 id="list-title">Blog Posts</h2>
                 <ul id="blogPostsList"></ul>
             </form>
         </section>
