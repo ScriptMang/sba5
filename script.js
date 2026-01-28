@@ -65,6 +65,7 @@ function displayList(posts) {
         subTitle.textContent = post.title;
         content.textContent = post.content;        
         editButton.type = "submit";
+        editButton.className = "edit";
         editButton.textContent = "edit";
 
         listItem.appendChild(subTitle);
@@ -73,8 +74,25 @@ function displayList(posts) {
         blogPostList.appendChild(listItem);
 
 
-        editButton.addEventListener('click', ()=>{
-            displayList(posts);
+        editButton.addEventListener('click', (event)=>{
+            if (event.target.classList.contains("edit")) {
+                const item = event.target.closest('li');
+                const blogTitle = item[0];
+                const blogContent = item[1]; 
+
+                const editTitleInput = document.createElement('input');
+
+                const editContentInput = document.createElement('input');
+                editTitleInput.value = blogTitle.textContent;
+                editContentInput.value = blogContent.textContent;
+
+                console.log(editTitleInput);
+                console.log(editContentInput);
+                
+                blogTitle.replaceWith(editTitleInput);
+                blogContent.replaceWith(editContentInput);
+                displayList(blogPostList);
+            }
         });
     }
     console.log(posts);
