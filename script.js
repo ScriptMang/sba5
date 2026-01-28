@@ -53,21 +53,28 @@ formSubmitButton.addEventListener("click", (event)=>{
 
 
 function displayList(posts) {
+    let count = 1 ;
     for (let post of posts) {
         const listItem = document.createElement("li");
         const subTitle = document.createElement("h3");  
         const content = document.createElement("p");  
         const editButton = document.createElement("button");
-        editButton.textContent = "edit";
-        
 
         blogPostList.style = "list-style: none;";
         subTitle.textContent = post.title;
-        content.textContent = post.content;
+        content.textContent = post.content;        
+        editButton.type = "submit";
+        editButton.textContent = "edit";
 
         listItem.appendChild(subTitle);
         listItem.appendChild(content);
+        listItem.appendChild(editButton);
         blogPostList.appendChild(listItem);
+
+
+        editButton.addEventListener('click', function(){
+            displayList(taskList);
+        });
     }
     console.log(posts);
 }
