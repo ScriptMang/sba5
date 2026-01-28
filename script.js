@@ -26,6 +26,12 @@ postContent.addEventListener("change", (event)=>{
     contentErr.textContent = postTextArea.validationMessage;
 });
 
+function clearInputFields(fields) {
+     for (let field of fields){
+        field.value = "";
+    }
+}
+
 let posts = [];
 formSubmitButton.addEventListener("click", (event)=>{
     event.preventDefault();
@@ -39,9 +45,11 @@ formSubmitButton.addEventListener("click", (event)=>{
         posts.push(blogPost);
         console.log(posts);
         displayList(posts);
+        clearInputFields([titleInput, postTextArea]);
     }
   
 });
+
 
 
 function displayList(posts) {
@@ -49,6 +57,9 @@ function displayList(posts) {
         const listItem = document.createElement("li");
         const subTitle = document.createElement("h3");  
         const content = document.createElement("p");  
+        const editButton = document.createElement("button");
+        editButton.textContent = "edit";
+        
 
         blogPostList.style = "list-style: none;";
         subTitle.textContent = post.title;
