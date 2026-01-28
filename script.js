@@ -64,7 +64,7 @@ function displayList(posts) {
         blogPostList.style = "list-style: none;";
         subTitle.textContent = post.title;
         content.textContent = post.content;        
-        editButton.type = "submit";
+        editButton.type = "button";
         editButton.className = "edit";
         editButton.textContent = "edit";
 
@@ -81,7 +81,6 @@ function displayList(posts) {
                 const blogContent = item[1]; 
 
                 const editTitleInput = document.createElement('input');
-
                 const editContentInput = document.createElement('input');
                 editTitleInput.value = blogTitle.textContent;
                 editContentInput.value = blogContent.textContent;
@@ -89,11 +88,11 @@ function displayList(posts) {
                 console.log(editTitleInput);
                 console.log(editContentInput);
                 
-                blogTitle.replaceWith(editTitleInput);
-                blogContent.replaceWith(editContentInput);
-                displayList(blogPostList);
+                // blogPostList[0].replaceWith(editTitleInput);
+                // blogPostList[1].replaceWith(editContentInput);
+                // displayList(blogPostList);
             }
         });
     }
-    console.log(posts);
+    console.log(blogPostList);
 }
