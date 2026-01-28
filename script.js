@@ -53,6 +53,7 @@ formSubmitButton.addEventListener("click", (event)=>{
 
 
 function displayList(posts) {
+    blogPostList.textContent = "";
     let count = 1 ;
     for (let post of posts) {
         const listItem = document.createElement("li");
@@ -72,8 +73,8 @@ function displayList(posts) {
         blogPostList.appendChild(listItem);
 
 
-        editButton.addEventListener('click', function(){
-            displayList(taskList);
+        editButton.addEventListener('click', ()=>{
+            displayList(posts);
         });
     }
     console.log(posts);
