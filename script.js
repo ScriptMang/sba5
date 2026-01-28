@@ -4,7 +4,7 @@ const postTextArea = document.getElementById("postContent");
 const formSubmitButton = document.getElementById("formSubmitButton");
 const titleErr = document.getElementById("blogTitleError")
 const contentErr = document.getElementById("blogContentError");
-
+const blogPostList = document.getElementById("blogPostsList");
 
 titleInput.addEventListener("change", (event)=>{
     const title = event.target;
@@ -37,8 +37,26 @@ formSubmitButton.addEventListener("click", (event)=>{
             content: postTextArea.value
         }
         posts.push(blogPost);
+        console.log(posts);
+        displayList(posts);
     }
-    console.log(posts);
+  
 });
 
 
+function displayList(posts) {
+    for (let post of posts) {
+        const listItem = document.createElement("li");
+        const subTitle = document.createElement("h3");  
+        const content = document.createElement("p");  
+
+        blogPostList.style = "list-style: none;";
+        subTitle.textContent = post.title;
+        content.textContent = post.content;
+
+        listItem.appendChild(subTitle);
+        listItem.appendChild(content);
+        blogPostList.appendChild(listItem);
+    }
+    console.log(posts);
+}
