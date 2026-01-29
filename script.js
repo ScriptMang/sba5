@@ -76,18 +76,28 @@ function displayList(posts) {
 
         editButton.addEventListener('click', (event)=>{
             if (event.target.classList.contains("edit")) {
-                const item = event.target.closest('li');
+                const item = event.target.closest('li').children;
+                console.log(`List-item: `+ item);
                 const blogTitle = item[0];
+                
+                console.log(`Blog-Title: ${blogTitle}`);
                 const blogContent = item[1]; 
+                console.log(`Blog-Content: ${blogContent}`);
 
+                
                 const editTitleInput = document.createElement('input');
-                const editContentInput = document.createElement('input');
+                const editContentInput = document.createElement('textArea');
                 editTitleInput.value = blogTitle.textContent;
                 editContentInput.value = blogContent.textContent;
 
                 console.log(editTitleInput);
                 console.log(editContentInput);
+
                 
+                blogTitle.replaceWith(editTitleInput);
+                blogContent.replaceWith(editContentInput);
+
+
                 // blogPostList[0].replaceWith(editTitleInput);
                 // blogPostList[1].replaceWith(editContentInput);
                 // displayList(blogPostList);
