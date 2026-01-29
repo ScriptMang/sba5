@@ -54,7 +54,6 @@ formSubmitButton.addEventListener("click", (event)=>{
 
 function displayList(posts) {
     blogPostList.textContent = "";
-    let count = 1 ;
     for (let post of posts) {
         const listItem = document.createElement("li");
         const subTitle = document.createElement("h3");  
@@ -113,13 +112,10 @@ function displayList(posts) {
                 editButton.replaceWith(updateButton);
 
                 updateButton.addEventListener('click', ()=>{
-                    // const postList =  blogPostList.children;
-                    posts[0].textContent =  blogTitleContainer.children[0].textContent; 
+                    posts[0].title = editTitleInput.value; 
+                    posts[0].content = editContentInput.value; 
                     displayList(posts);
                 });
-                // blogPostList[0].replaceWith(editTitleInput);
-                // blogPostList[1].replaceWith(editContentInput);
-                // displayList(blogPostList);
             }
         });
     }
