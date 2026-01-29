@@ -111,7 +111,12 @@ function displayList(posts) {
                 updateButton.type = "button";
                 updateButton.textContent = "update";
                 editButton.replaceWith(updateButton);
-                
+
+                updateButton.addEventListener('click', ()=>{
+                    // const postList =  blogPostList.children;
+                    posts[0].textContent =  blogTitleContainer.children[0].textContent; 
+                    displayList(posts);
+                });
                 // blogPostList[0].replaceWith(editTitleInput);
                 // blogPostList[1].replaceWith(editContentInput);
                 // displayList(blogPostList);
