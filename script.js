@@ -59,6 +59,7 @@ function displayList(posts) {
         const subTitle = document.createElement("h3");  
         const content = document.createElement("p");  
         const editButton = document.createElement("button");
+        const deleteButton = document.createElement("button");
 
         blogPostList.style = "list-style: none;";
         subTitle.textContent = post.title;
@@ -66,10 +67,14 @@ function displayList(posts) {
         editButton.type = "button";
         editButton.className = "edit";
         editButton.textContent = "edit";
+        deleteButton.type = "button";
+        deleteButton.id = "delete";
+        deleteButton.textContent = "delete";
 
         listItem.appendChild(subTitle);
         listItem.appendChild(content);
         listItem.appendChild(editButton);
+        listItem.appendChild(deleteButton);
         blogPostList.appendChild(listItem);
 
 
@@ -118,6 +123,12 @@ function displayList(posts) {
                 });
             }
         });
+
+        deleteButton.addEventListener("click", (event)=>{
+           const li = event.target.closest('li');
+           li.remove();
+        });
+
     }
     console.log(blogPostList);
 }
