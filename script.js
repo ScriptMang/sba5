@@ -84,18 +84,28 @@ function displayList(posts) {
                 const blogContent = item[1]; 
                 console.log(`Blog-Content: ${blogContent}`);
 
-                
+                const blogTitleContainer = document.createElement('div');
+                blogTitleContainer.id = "editBlogTitleContainer;";
                 const editTitleInput = document.createElement('input');
+                
+                const blogContentContainer = document.createElement('div');
+                blogContentContainer.id = "editBlogContentContainer;";
                 const editContentInput = document.createElement('textArea');
+                editContentInput.rows = "5";
+                editContentInput.cols = "33";
+    
                 editTitleInput.value = blogTitle.textContent;
                 editContentInput.value = blogContent.textContent;
+               
+                blogTitleContainer.appendChild(editTitleInput);
+                blogContentContainer.appendChild(editContentInput);
 
                 console.log(editTitleInput);
                 console.log(editContentInput);
 
                 
-                blogTitle.replaceWith(editTitleInput);
-                blogContent.replaceWith(editContentInput);
+                blogTitle.replaceWith(blogTitleContainer);
+                blogContent.replaceWith(blogContentContainer);
 
 
                 // blogPostList[0].replaceWith(editTitleInput);

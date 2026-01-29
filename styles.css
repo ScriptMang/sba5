@@ -10,5 +10,15 @@
 
 #blogPostList {
     display: flex;
-    flex-direction: column;;
+    flex-direction: column;
+}
+
+#editBlogTitleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+#editBlogContentContainer {
+    display: flex;
+    flex-direction: column;
 }
