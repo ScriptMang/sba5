@@ -8,6 +8,7 @@ you can change the existing blog title and body. Getting the edit button event h
 but a silent error I ran into where I chose the type attribute for button to be "submit". Submit is exclusively for forms so it would wipe
 my list clean and not show me my error. I managed to fix this issue by choosing the button type to be "button" to stop that form like behavior.
 Another issue I ran into was confusing properties of an HTML DOM element for the update button event handler. I fixed this issue by looking at the mdn docs.  
+The only feature I couldn't implmenet was local storage, due to time constraints.
 
 
 
